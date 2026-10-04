@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KausalyaDrishti — Complete Solution Plan | SIH 2026 PS 26245</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0f172a;
+      --accent: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --border: #e2e8f0;
+      --text: #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background-color: #f1f5f9;
+      line-height: 1.6;
+      font-size: 13.5px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .toolbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: #0f172a; color: white;
+      padding: 12px 24px; display: flex;
+      justify-content: space-between; align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .toolbar h1 { font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .toolbar .btn {
+      background: #0284c7; color: white; border: none;
+      padding: 8px 18px; border-radius: 6px; font-weight: 600; font-size: 13px;
+      cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+    }
+
+    .page-container {
+      max-width: 960px; margin: 24px auto; background: #ffffff;
+      padding: 48px; border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .header { border-bottom: 2px solid #e2e8f0; padding-bottom: 24px; margin-bottom: 30px; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 10px; border-radius: 9999px; font-size: 11px;
+      font-weight: 700; text-transform: uppercase;
+    }
+    .badge-primary { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+    .badge-secondary { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+    .badge-success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+    .badge-warning { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .badge-danger { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+    .title-area h1 { font-size: 28px; font-weight: 800; color: #0f172a; margin-bottom: 6px; }
+    .title-area h1 span.kannada { color: #0284c7; }
+    .subtitle { font-size: 14px; color: #64748b; font-weight: 500; }
+
+    .callout { padding: 16px 20px; border-radius: 8px; margin: 18px 0; border-left: 4px solid; }
+    .callout-problem { border-left-color: #ef4444; background: #fff5f5; }
+    .callout-solution { border-left-color: #0284c7; background: #f0f9ff; }
+    .callout-title { font-weight: 700; font-size: 13px; text-transform: uppercase; margin-bottom: 4px; }
+    .callout-problem .callout-title { color: #dc2626; }
+    .callout-solution .callout-title { color: #0284c7; }
+    .callout-text { font-size: 14px; color: #334155; font-weight: 500; }
+
+    h2 { font-size: 18px; font-weight: 700; color: #0f172a; margin: 32px 0 14px 0; padding-bottom: 8px; border-bottom: 1.5px solid #e2e8f0; }
+    table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 14px 0 20px 0; font-size: 12.5px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+    th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #f8fafc; font-weight: 700; color: #334155; font-size: 12px; text-transform: uppercase; }
+    tr:nth-child(even) td { background: #fafbfc; }
+
+    .feat-tag {
+      display: inline-block; font-family: 'JetBrains Mono', monospace; font-weight: 700;
+      font-size: 11px; padding: 2px 6px; border-radius: 4px; background: #e0e7ff; color: #3730a3;
+    }
+
+    .arch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 16px 0; }
+    .arch-card { background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 16px; }
+    .arch-card.primary { border-color: #0284c7; background: #f0f9ff; }
+    .arch-card-title { font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+    .arch-card-user { font-size: 12px; color: #64748b; margin-bottom: 12px; }
+
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #e2e8f0; display: flex; justify-content: space-between; color: #64748b; font-size: 12px; }
+    
+    @media print {
+      body { background: white; font-size: 12px; }
+      .toolbar { display: none !important; }
+      .page-container { margin: 0; padding: 0; border: none; box-shadow: none; max-width: 100%; }
+      @page { margin: 14mm 12mm 14mm 12mm; size: A4; }
+      table, .callout, .arch-card { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <h1><span>🏛️</span> KausalyaDrishti — Solution Master Plan</h1>
+    <button class="btn" onclick="window.print()">Print / Save PDF</button>
+  </div>
+
+  <div class="page-container">
+
+    <div class="header">
+      <div class="badge-row">
+        <span class="badge badge-primary">Smart India Hackathon 2026</span>
+        <span class="badge badge-secondary">PS ID: 26245</span>
+        <span class="badge badge-success">Ministry of Skill Development & Entrepreneurship (MSDE)</span>
+        <span class="badge badge-danger">Anti-Fraud & Skilling Compliance Engine</span>
+      </div>
+
+      <div class="title-area">
+        <h1>KausalyaDrishti <span class="kannada">(ಕೌಶಲ್ಯ ದೃಷ್ಟಿ)</span></h1>
+        <div class="subtitle">AI-Based Real-Time Monitoring of Training Centres for Attendance and Infrastructure Compliance</div>
+      </div>
+    </div>
+
+    <div class="callout callout-problem">
+      <div class="callout-title">📌 Problem Statement in One Line</div>
+      <div class="callout-text">
+        <strong>Ministry of Skill Development (PS 26245):</strong> Government skilling schemes (PMKVY, DDU-GKY) suffer from attendance falsification (ghost trainees claimed for government stipends) and non-compliant lab infrastructure between manual periodic audits.
+      </div>
+    </div>
+
+    <div class="callout callout-solution">
+      <div class="callout-title">💡 Our Solution in One Line</div>
+      <div class="callout-text">
+        <strong>KausalyaDrishti</strong> is an <strong>edge-AI video compliance system</strong> that processes training centre camera feeds in real time to count actual students, detect mandatory machinery, blur faces for 100% trainee privacy, and flag discrepancies to an MSDE ministry command dashboard using only 5 KB of rural bandwidth.
+      </div>
+    </div>
+
+    <h2>🎯 Core Deliverables & PS Requirements Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Official Requirement</th>
+          <th>KausalyaDrishti Implementation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Real-Time Attendance Estimation</strong></td>
+          <td>Client-side AI headcount detector continuously counting trainees in classroom video feeds.</td>
+        </tr>
+        <tr>
+          <td><strong>Cross-Checking with Portal Records</strong></td>
+          <td>Tally engine comparing centre's portal claims vs AI headcount ➔ Flags Ghost Trainee Fraud.</td>
+        </tr>
+        <tr>
+          <td><strong>Infrastructure Presence & Operability</strong></td>
+          <td>Computer vision object detector scanning for sanctioned workbenches, sewing machines, welding kits.</td>
+        </tr>
+        <tr>
+          <td><strong>Central Discrepancy Dashboard</strong></td>
+          <td>MSDE Ministry dashboard with district heatmaps, center compliance ratings, and grant freeze actions.</td>
+        </tr>
+        <tr>
+          <td><strong>Trainee Privacy Preservation</strong></td>
+          <td>Automatic dynamic face pixelation/blurring filter conforming to DPDP Act standards.</td>
+        </tr>
+        <tr>
+          <td><strong>Low-Bandwidth Rural Mode</strong></td>
+          <td>Transmits 5 KB JSON metadata telemetry + violation keyframe snapshots instead of 24/7 video.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>🏗️ 3-Portal System Architecture</h2>
+    <div class="arch-grid">
+      <div class="arch-card primary">
+        <div class="arch-card-title">🎥 Centre Edge Camera Portal</div>
+        <div class="arch-card-user"><strong>Runs at Training Centre:</strong> Processes webcam/CCTV feed with live bounding box overlays and privacy face-blur.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-card-title">📊 Audit & Discrepancy Desk</div>
+        <div class="arch-card-user"><strong>Automated Audit:</strong> Tally comparison between registered roster and live AI count + Machinery checklist.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-card-title">🏛️ MSDE Ministry Dashboard</div>
+        <div class="arch-card-user"><strong>Used by MSDE / NSDC Officers:</strong> National/State risk heatmaps, show-cause notices, grant freezes.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div><strong>KausalyaDrishti</strong> • Team Elite Evolvers</div>
+      <div>SIH 2026 Problem Statement ID: 26245</div>
+      <div>Ministry of Skill Development and Entrepreneurship</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

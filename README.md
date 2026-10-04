@@ -42,7 +42,7 @@ Unlike existing retrospective data-entry systems (such as RCH Portal or Poshan T
 │       PORTAL 1: ASHA FIELD APP            │    │      PORTAL 2: PHC DOCTOR PORTAL          │
 │   (Mobile View • 100% Offline-First)      │    │      (Desktop Clinical Console)           │
 ├───────────────────────────────────────────┤    ├───────────────────────────────────────────┤
-│ • Module A: Maternal ANC Triage           │    │ • Severity-Sorted Referral Queue (🔴🟡🟢) │
+│ • Module A: Maternal ANC Triage           │    │ • Severity-Sorted Referral Queue (🔴🟡🟢)│
 │ • Module B: Pediatric Malnutrition/SAM    │    │ • Assisted WebRTC Video/Audio Teleconsult │
 │ • Module C: Chronic NCD & TB Screen       │    │ • Dynamic Appointment & e-Prescription    │
 │ • Offline IndexedDB Encrypted Store       │    │ • 108 Arogya Kavacha Ambulance Dispatch   │

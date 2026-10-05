@@ -1,33 +1,31 @@
-# 🚀 ArogyaBandhu — Team Implementation Master Plan (`implement.md`)
+# 🚀 KausalyaDrishti — Team Implementation Master Plan (`implement.md`)
 > **Team Name:** Elite Evolvers  
-> **Event:** Smart India Hackathon 2026 | Problem Statement #133  
-> **Project:** ArogyaBandhu (ಆರೋಗ್ಯ ಬಂಧು) — Offline-First AI Tele-Triage & Referral Platform  
-> **Tech Stack:** React 19 (Vite) + Lucide Icons + IndexedDB + Tailwind/CSS Tokens  
-> **Execution Duration:** 6-Hour Parallel Sprint  
+> **Event:** Smart India Hackathon 2026 | Problem Statement ID: 26245 (MSDE)  
+> **Project:** KausalyaDrishti (ಕೌಶಲ್ಯ ದೃಷ್ಟಿ) — AI Training Centre Compliance & Anti-Fraud Engine  
+> **Branch:** `KD`  
+> **Tech Stack:** React 19 (Vite) + TensorFlow.js / Canvas AI + Tailwind/CSS Tokens + Lucide Icons  
 > **Lead Architect & Integrator:** Abhilash K R
 
 ---
 
-## 👥 1. Team Roster & Module Ownership Matrix
+## 👥 1. Team Ownership & Git Branch Matrix
 
-To prevent merge conflicts and dependency blocking, the project is divided into **6 isolated modules**. Each team member owns **specific files, branches, and a dedicated AI log file**.
-
-| # | Team Member | Git Branch Name | Assigned Module / Component Files | Dedicated AI Work Log | Core Responsibility |
+| # | Team Member | Git Branch Name | Assigned Components / Files | Mandatory AI Log File | Core Responsibilities |
 |---|---|---|---|---|---|
-| **1** | **Abhilash K R** *(Lead)* | `main` & `lead/integration` | `src/App.jsx`, `src/components/Navbar.jsx`, `src/services/db.js`, `src/data/mockData.js` | `logs/abhilash_log.md` | System Architecture, Base Setup, State Orchestration, Git Master Merge & Final QA |
-| **2** | **Anjandri T N** | `feature/asha-triage-form` | `src/components/asha/AshaPatientForm.jsx`, `src/components/asha/VitalsInput.jsx` | `logs/anjandri_log.md` | Patient Registration, ABHA ID Validation `[14]`, Vitals Input UI for Modules A/B/C `[10]` |
-| **3** | **Keerthana** | `feature/triage-engine-qr` | `src/services/triageEngine.js`, `src/components/asha/TriageResultCard.jsx`, `src/components/asha/QrSlipModal.jsx` | `logs/keerthana_log.md` | Deterministic Triage Logic `[3]`, Color-Coded Risk Display (🔴🟡🟢), Local Vector QR Generator `[5]` |
-| **4** | **Lakshmikanth** | `feature/doctor-queue-tele` | `src/components/doctor/DoctorReferralQueue.jsx`, `src/components/doctor/TeleconsultModal.jsx` | `logs/lakshmikanth_log.md` | Severity-Sorted Referral Queue `[2]`, WebRTC Video/Audio Teleconsult Modal with Vitals HUD `[1]` |
-| **5** | **Laxuman** | `feature/doctor-actions-sos` | `src/components/doctor/DoctorActionPanel.jsx`, `src/components/doctor/SosAmbulanceModal.jsx`, `src/components/doctor/DrugStockWidget.jsx` | `logs/laxuman_log.md` | 108 Arogya Kavacha SOS Dispatch `[13]`, e-Prescription & Follow-up Scheduler `[8]`, Drug Inventory Monitor `[7]` |
-| **6** | **Naveen** | `feature/tho-dashboard-i18n` | `src/components/tho/ThoDistrictDashboard.jsx`, `src/components/tho/TalukHeatmap.jsx`, `src/data/i18n.js` | `logs/naveen_log.md` | Taluk Risk Heatmap `[9]`, District Health Analytics, Full Kannada ↔ English Bilingual Dictionary `[12]` |
+| **1** | **Abhilash K R** *(Lead)* | `KD` / `main` | `src/App.jsx`, `src/components/Navbar.jsx`, `src/data/centerMockData.js` | `logs/abhilash_log.md` | Master Layout, Navigation, State Orchestration, Git Master Integration & Final QA |
+| **2** | **Anjandri T N** | `feature/kd-video-ai-feed` | `src/components/edge/CameraFeedView.jsx`, `src/components/edge/AiDetector.jsx` | `logs/anjandri_log.md` | Video/Webcam Stream Ingestion, Real-Time Person & Machinery Bounding Boxes |
+| **3** | **Keerthana** | `feature/kd-discrepancy-engine` | `src/components/audit/AttendanceDiscrepancyCard.jsx`, `src/services/complianceRules.js` | `logs/keerthana_log.md` | Portal vs AI Count Tally Math, Ghost Trainee % Calculation, 🔴🟡🟢 Fraud Severity Flags |
+| **4** | **Lakshmikanth** | `feature/kd-infra-inventory` | `src/components/audit/InfraComplianceWidget.jsx`, `src/components/audit/SanctionedEquipList.jsx` | `logs/lakshmikanth_log.md` | Sanctioned vs Detected Machinery Checklist, Missing Equipment Deficit Tracker |
+| **5** | **Laxuman** | `feature/kd-privacy-telemetry` | `src/components/edge/PrivacyBlurToggle.jsx`, `src/components/edge/BandwidthTelemetry.jsx` | `logs/laxuman_log.md` | Dynamic Face-Blur Privacy Canvas Filter, 5 KB Rural Edge JSON Payload Generator |
+| **6** | **Naveen** | `feature/kd-msde-dashboard` | `src/components/msde/MsdeDistrictDashboard.jsx`, `src/components/msde/CentreAuditTable.jsx` | `logs/naveen_log.md` | MSDE Ministry Command Center, District Compliance Heatmaps, Show-Cause Notice Generator |
 
 ---
 
-## 📝 2. Mandatory AI Work Log Standard (`logs/<member_name>_log.md`)
+## 📝 2. Mandatory AI Work Log Standard (`logs/<name>_log.md`)
 
-Every team member's AI **MUST create and maintain** their assigned log file in the `logs/` directory (e.g. `logs/anjandri_log.md`). This enables Abhilash to integrate all components in 15 minutes without confusion.
+Every member's AI assistant **MUST create and update** their assigned log file in `logs/` (e.g., `logs/anjandri_log.md`).
 
-### Each log file MUST follow this structure:
+### Each log file MUST follow this exact format:
 ```markdown
 # 🛠️ Development Log — <Your Name>
 **Branch:** <feature/branch-name>  
@@ -36,31 +34,27 @@ Every team member's AI **MUST create and maintain** their assigned log file in t
 
 ## 1. Files Created & Modified
 - `src/components/path/YourComponent.jsx` (Created)
-- `src/services/yourService.js` (Updated)
 
 ## 2. Exported Components & Props Specification
 ### `<YourComponent />`
 - **Props Expected:**
-  - `propName` (type): Description
-  - `onCallback` (function): Triggered when...
-- **State Used:** Local state description
+  - `centerData` (object): Selected training centre profile
+  - `onViolationDetected` (function): Triggered when discrepancy exceeds threshold
+- **Local State:** Description of internal component state
 
 ## 3. How to Run & Test My Component
-1. Import `<YourComponent />` inside `src/App.jsx`.
-2. Pass mock data: `<YourComponent data={mockData} onSave={...} />`.
-3. Check browser console for output.
+1. Import component in `App.jsx`.
+2. Pass mock data: `<YourComponent centerData={mockData} />`.
+3. Verify bounding boxes and discrepancy alerts render correctly.
 
 ## 4. Integration Notes for Abhilash (Lead Integrator)
 - Ready for merge: YES / NO
-- Dependencies required: (e.g., `lucide-react`)
-- Special instructions: (e.g., handles offline state automatically)
+- Special dependencies or notes: (e.g., uses HTML5 Canvas)
 ```
 
 ---
 
-## 📐 3. Contract-First Interface Specification (Zero Merge Conflict Guarantee)
-
-Every member must write code strictly adhering to these **Component Props & Data Contracts**.
+## 📐 3. Contract-First Component Architecture & Shared Data Models
 
 ```
                                       ┌─────────────────────────────────┐
@@ -72,392 +66,250 @@ Every member must write code strictly adhering to these **Component Props & Data
          │                                             │                                             │
          ▼                                             ▼                                             ▼
 ┌──────────────────────────────┐        ┌──────────────────────────────┐      ┌──────────────────────────────┐
-│  PORTAL 1: ASHA FIELD APP    │        │  PORTAL 2: PHC DOCTOR DESK   │      │  PORTAL 3: THO DASHBOARD     │
+│  PORTAL 1: CENTRE EDGE AI    │        │  PORTAL 2: AUDIT & TALLY     │      │  PORTAL 3: MSDE DASHBOARD    │
 ├──────────────────────────────┤        ├──────────────────────────────┤      ├──────────────────────────────┤
-│ [Anjandri]                   │        │ [Lakshmikanth]               │      │ [Naveen]                     │
-│  <AshaPatientForm />         │        │  <DoctorReferralQueue />     │      │  <ThoDistrictDashboard />    │
-│  <VitalsInput />             │        │  <TeleconsultModal />        │      │  <TalukHeatmap />            │
+│ [Anjandri]                   │        │ [Keerthana]                  │      │ [Naveen]                     │
+│  <CameraFeedView />          │        │  <AttendanceDiscrepancyCard/>│      │  <MsdeDistrictDashboard />   │
+│  <AiDetector />              │        │  complianceRules.js Engine   │      │  <CentreAuditTable />        │
 ├──────────────────────────────┤        ├──────────────────────────────┤      ├──────────────────────────────┤
-│ [Keerthana]                  │        │ [Laxuman]                    │      │ [Naveen + All]               │
-│  <TriageResultCard />        │        │  <DoctorActionPanel />       │      │  I18N Language Context       │
-│  <QrSlipModal />             │        │  <SosAmbulanceModal />       │      │  (ಕನ್ನಡ ↔ English)           │
-│  evaluateTriage() Engine     │        │  <DrugStockWidget />         │      │                              │
+│ [Laxuman]                    │        │ [Lakshmikanth]               │      │ [All Members]                │
+│  <PrivacyBlurToggle />       │        │  <InfraComplianceWidget />   │      │  `centerMockData.js`         │
+│  <BandwidthTelemetry />      │        │  <SanctionedEquipList />     │      │  Shared State Store          │
 └──────────────────────────────┘        └──────────────────────────────┘      └──────────────────────────────┘
 ```
 
-### Shared Data Models (`PatientRecord`)
-```typescript
-{
-  patientId: string;        // "PAT-KA-TUM-001"
-  abhaId: string;           // "91-4820-1123-8901" (14-digit)
-  name: string;             // "Lakshmi Bai"
-  nameLocal: string;        // "ಲಕ್ಷ್ಮೀ ಬಾಯಿ"
-  age: string;              // "24"
-  gender: "Female" | "Male" | "Other";
-  phone: string;            // "9845012345"
-  village: string;          // "Goravanahalli"
-  taluk: string;            // "Koratagere"
-  ashaName: string;         // "Shantha Devi"
-  module: "MATERNAL" | "CHILD" | "CHRONIC";
-  vitals: {
-    // Maternal:
-    gestationalWeeks?: number;
-    bpSystolic?: number;
-    bpDiastolic?: number;
-    hemoglobin?: number;
-    facialEdema?: boolean;
-    severeHeadache?: boolean;
-    vaginalBleeding?: boolean;
-    fetalMovement?: "NORMAL" | "REDUCED" | "ABSENT";
-    // Child:
-    childAgeMonths?: number;
-    childWeight?: number;
-    muacTape?: "red" | "yellow" | "green";
-    fastBreathing?: boolean;
-    childLethargic?: boolean;
-    feverDays?: number;
-    // Chronic:
-    bloodSugar?: number;
-    coughDuration?: "under2weeks" | "over2weeks";
-    chestPain?: boolean;
-  };
-  triage: {
-    riskLevel: "RED" | "YELLOW" | "GREEN";
-    color: string;          // "#ef4444" | "#f59e0b" | "#10b981"
-    flags: string[];        // Array of detected red/yellow alerts
-    actionEn: string;
-    actionKn: string;
-  };
-  referralId?: string;      // "REF-2026-001"
-  status: "REFERRED" | "AMBULANCE_DISPATCHED" | "APPOINTMENT_SCHEDULED" | "ATTENDED";
-  timestamp: string;
-  syncState: "PENDING_SYNC" | "SYNCED";
-}
-```
-
 ---
 
-## 🛠️ 4. Step-by-Step Git Guide for Beginners
+## 🛠️ 4. Beginner-Friendly Git Commands (For Team Members)
 
-### Phase 1: Initial Setup (All Members)
+### Step 1: Clone and Checkout Your Assigned Branch
 ```bash
-# 1. Clone the master repository
+# Clone the repository
 git clone https://github.com/Abhilash-K-R/ArogyaBandhu-SIH2026.git
 cd ArogyaBandhu-SIH2026
 
-# 2. Install all dependencies
-npm install
+# Switch to the KD branch first
+git checkout KD
 
-# 3. Test that the project starts
-npm run dev
-# (Press Ctrl + C in terminal to stop after verifying it opens in browser)
+# Create and switch to your feature branch:
+# Anjandri:
+git checkout -b feature/kd-video-ai-feed
+# Keerthana:
+git checkout -b feature/kd-discrepancy-engine
+# Lakshmikanth:
+git checkout -b feature/kd-infra-inventory
+# Laxuman:
+git checkout -b feature/kd-privacy-telemetry
+# Naveen:
+git checkout -b feature/kd-msde-dashboard
 ```
 
----
-
-### Phase 2: Create and Switch to Your Assigned Branch
-
-Each member runs ONLY their own branch command:
-
-* **Anjandri:** `git checkout -b feature/asha-triage-form`
-* **Keerthana:** `git checkout -b feature/triage-engine-qr`
-* **Lakshmikanth:** `git checkout -b feature/doctor-queue-tele`
-* **Laxuman:** `git checkout -b feature/doctor-actions-sos`
-* **Naveen:** `git checkout -b feature/tho-dashboard-i18n`
-
----
-
-### Phase 3: Work on Code & Save (Every 45 Minutes)
+### Step 2: Save, Commit, and Push Your Work
 ```bash
-# Check modified files
-git status
-
-# Stage modified files & your log file
+# Stage changes
 git add .
 
-# Commit with a clear message
+# Commit with a message
 git commit -m "feat: implemented assigned component and updated logs"
 
-# Push to your remote branch on GitHub
+# Push to GitHub
 git push -u origin HEAD
-```
-
----
-
-### Phase 4: Final Push Before Merge (Hour 4.5)
-```bash
-git add .
-git commit -m "feat: completed module and finalized log ready for merge"
-git push origin HEAD
-```
-
----
-
-### Phase 5: Lead Merge & Integration (Abhilash Only)
-```bash
-# Switch to main and get latest
-git checkout main
-git pull origin main
-
-# Merge each branch one by one
-git merge feature/asha-triage-form
-git merge feature/triage-engine-qr
-git merge feature/doctor-queue-tele
-git merge feature/doctor-actions-sos
-git merge feature/tho-dashboard-i18n
-
-# Test build & run
-npm run build
-npm run dev
 ```
 
 ---
 
 ## 🤖 5. Copy-Paste AI Prompts for Each Team Member
 
-Whenever you use an AI tool (Copilot, Cursor, Antigravity, ChatGPT, Claude), **attach `README.md`, `PLAN.md`, and `implement.md` to the chat and paste your specific prompt below**.
-
 ---
 
-### 🟢 PROMPT 1: For Abhilash K R (Lead / Architecture / State Orchestration)
+### 🟢 PROMPT 1: For Abhilash K R (Lead / Architecture / Master Integration)
 ```text
-I am Abhilash K R, Lead Integrator for the SIH 2026 project 'ArogyaBandhu' (Team Elite Evolvers).
+I am Abhilash K R, Lead Architect for the SIH 2026 project 'KausalyaDrishti' (Team Elite Evolvers, PS ID: 26245 - MSDE).
 I have attached README.md, PLAN.md, and implement.md.
 
 My Assigned Role:
-1. Orchestrate the master application in src/App.jsx.
+1. Orchestrate src/App.jsx managing root state:
+   - activeTab ('edge' | 'audit' | 'msde')
+   - selectedCenter (from src/data/centerMockData.js)
+   - liveStats ({ liveCount: 8, registeredCount: 28, discrepancy: 71.4, infraScore: 82.1 })
+   - isPrivacyOn (boolean)
+   - showCauseNoticeModal (boolean)
 2. Build src/components/Navbar.jsx with:
-   - Portal switcher: [ASHA Field App | PHC Doctor Desk | THO District Analytics]
-   - Live Network Toggle: [Online (Sync Active) ↔ Offline Mode (Data Auto-Saves on Device)]
-   - Instant Kannada ↔ English Language Toggle (ಕನ್ನಡ / EN)
-   - Real-time offline queue counter badge.
-3. Manage root state for:
-   - activeTab ('asha' | 'doctor' | 'tho')
-   - currentLang ('en' | 'kn')
-   - isOffline (boolean)
-   - patients list (seeded from src/data/mockData.js)
-   - referrals list (shared across ASHA and Doctor portals)
-   - drugInventory list
-   - followUpQueue list
-4. Provide handleSaveEncounter(newRecord) which:
-   - Appends to local patients & referrals
-   - Triggers a simulated sync banner when online
-   - Updates longitudinal history.
-5. MANDATORY LOG: Maintain 'logs/abhilash_log.md' recording:
-   - Master state interfaces
-   - Component registry
-   - Integration status.
+   - Brand logo & title ("🏛️ KausalyaDrishti / ಕೌಶಲ್ಯ ದೃಷ್ಟಿ — MSDE Anti-Fraud Portal")
+   - Portal switcher: [🎥 Centre Live Camera | 📊 Attendance & Infra Audit | 🏛️ MSDE Ministry Console]
+   - Live Discrepancy Alert ticker: "🔴 Alert: 20 Ghost Trainees detected in Batch B04 (Tumakuru Skill Academy)".
+3. MANDATORY LOG: Maintain 'logs/abhilash_log.md' detailing integration status.
 
-Please generate clean, robust, error-free code for src/App.jsx, src/components/Navbar.jsx, and logs/abhilash_log.md.
+Please generate clean, robust React JSX code for src/App.jsx, src/components/Navbar.jsx, and logs/abhilash_log.md.
 ```
 
 ---
 
-### 🟢 PROMPT 2: For Anjandri T N (ASHA Patient Registration & Vitals Input)
+### 🟢 PROMPT 2: For Anjandri T N (Video Feed & AI Bounding Box Detector)
 ```text
-I am Anjandri T N from Team Elite Evolvers working on branch 'feature/asha-triage-form'.
+I am Anjandri T N from Team Elite Evolvers working on branch 'feature/kd-video-ai-feed'.
 I have attached README.md, PLAN.md, and implement.md.
 
 My Assigned Files:
-1. src/components/asha/AshaPatientForm.jsx
-2. src/components/asha/VitalsInput.jsx
+1. src/components/edge/CameraFeedView.jsx
+2. src/components/edge/AiDetector.jsx
 3. logs/anjandri_log.md (MANDATORY LOG)
 
 My Exact Responsibilities:
-1. Build AshaPatientForm.jsx:
-   - Collect Patient Full Name, Age, Gender, Mobile Phone, Village, Taluk.
-   - 14-Digit ABHA ID input field with formatting (XX-XXXX-XXXX-XXXX) and ABDM badge [14].
-   - Search/Auto-fill button: If patient name or ABHA matches existing mock records (e.g., 'Lakshmi Bai'), auto-fill demographics and display their past visit history banner [4].
-   - Module Selector Tabs: [🤰 Module A: Maternal ANC | 👶 Module B: Child Health (0-5y) | 🩺 Module C: Chronic & Infection] [10].
-2. Build VitalsInput.jsx:
-   - Render dynamic form inputs based on the selected module:
-     * Maternal: Gestational Weeks, BP Systolic, BP Diastolic, Hb (g/dL), Facial Edema (Yes/No), Severe Headache (Yes/No), Vaginal Bleeding (Yes/No), Fetal Movement (Normal/Reduced/Absent).
-     * Child: Age in months, Weight (kg), MUAC Arm Tape (Red/Yellow/Green selection), Fast Breathing (Yes/No), Child Lethargic (Yes/No), Fever Days.
-     * Chronic: Random Blood Sugar (mg/dL), BP, Cough Duration (<2 weeks / >2 weeks), Chest Pain (Yes/No), Night Sweats (Yes/No).
-   - "Check Risk / Triage" submit button that triggers onTriageSubmit(formData).
-3. Ensure all labels and buttons use currentLang ('en' | 'kn') from I18N dictionary.
-4. MANDATORY LOG: Create and maintain 'logs/anjandri_log.md' detailing:
-   - Exported components & props
-   - Step-by-step instructions on how Abhilash can test and integrate them.
+1. Build CameraFeedView.jsx:
+   - Video container supporting both live webcam feed (navigator.mediaDevices.getUserMedia) and sample classroom video clip simulation.
+   - Mode switcher: [📹 Live Webcam | 🎬 Simulated PMKVY Classroom Feed].
+   - Overlay canvas rendering real-time AI bounding boxes at 30 FPS.
+2. Build AiDetector.jsx:
+   - Real-time bounding box renderer:
+     * Green bounding boxes around detected trainees with confidence tag (e.g. "Trainee: 94%").
+     * Blue bounding boxes around detected machinery (e.g. "Sewing Machine: 91%", "Workbench: 88%").
+   - Live HUD counter overlay in corner: "Live Headcount: 8 Trainees | Equipment Detected: 6/10".
+3. MANDATORY LOG: Create and maintain 'logs/anjandri_log.md'.
 
-Please generate complete, beautiful, accessible React JSX code with Tailwind/CSS styling for these files.
+Please generate complete, high-performance React JSX code with Tailwind/CSS styling for these files.
 ```
 
 ---
 
-### 🟢 PROMPT 3: For Keerthana (Clinical Triage Engine & QR Referral Slip)
+### 🟢 PROMPT 3: For Keerthana (Attendance Discrepancy & Ghost Trainee Engine)
 ```text
-I am Keerthana from Team Elite Evolvers working on branch 'feature/triage-engine-qr'.
+I am Keerthana from Team Elite Evolvers working on branch 'feature/kd-discrepancy-engine'.
 I have attached README.md, PLAN.md, and implement.md.
 
 My Assigned Files:
-1. src/services/triageEngine.js
-2. src/components/asha/TriageResultCard.jsx
-3. src/components/asha/QrSlipModal.jsx
-4. logs/keerthana_log.md (MANDATORY LOG)
+1. src/components/audit/AttendanceDiscrepancyCard.jsx
+2. src/services/complianceRules.js
+3. logs/keerthana_log.md (MANDATORY LOG)
 
 My Exact Responsibilities:
-1. Refine src/services/triageEngine.js:
-   - Implement evaluateMaternalTriage(data), evaluateChildTriage(data), and evaluateChronicTriage(data) according to WHO/NHM clinical rules in PLAN.md [3].
-   - Return { riskLevel: 'RED'|'YELLOW'|'GREEN', color, flags: string[], actionEn, actionKn }.
-2. Build TriageResultCard.jsx:
-   - Render high-impact visual card matching the risk level:
-     * 🔴 RED: Pulsing red header, critical red flags breakdown, urgent referral advice, [Generate QR Referral Slip] and [108 SOS Dispatch] buttons.
-     * 🟡 YELLOW: Amber warning card, moderate risk summary, [Schedule PHC Visit] button.
-     * 🟢 GREEN: Green card, normal physiological limits, [Save Routine Record] button.
-3. Build QrSlipModal.jsx:
-   - Render a printable, high-contrast Digital Referral Slip [5].
-   - Include Referral ID, Patient Name, Village, ASHA Name, Detected Red Flags, Assigned PHC.
-   - Render a high-resolution Vector QR Code (using SVG/Canvas) encoding the referral payload.
-   - Include Kannada + English bilingual referral instructions and a [Print / Share Slip] button.
-4. MANDATORY LOG: Create and maintain 'logs/keerthana_log.md' detailing:
-   - Clinical rule thresholds implemented
-   - Exported components & props
-   - Integration notes for Abhilash.
+1. Build complianceRules.js:
+   - Calculate Discrepancy %: ((portalCount - aiCount) / portalCount) * 100.
+   - Classify Risk: >40% ➔ RED (Critical Fraud), 15-40% ➔ YELLOW (Suspicious), <15% ➔ GREEN (Compliant).
+   - Estimate Financial Grant Leakage: ghostTraineeCount * ₹7,500 (PMKVY stipend/training cost per head).
+2. Build AttendanceDiscrepancyCard.jsx:
+   - Tally comparison view:
+     * Portal Registered Batch Strength (e.g. 30)
+     * Centre Claimed Present (e.g. 28)
+     * AI Verified Physical Headcount (e.g. 8)
+   - High-impact pulsing alert banner: "🔴 CRITICAL GHOST TRAINEE FRAUD: 20 Phantom Trainees Detected (71.4% Shortfall)! Est. Grant Leakage: ₹1,50,000".
+   - Time-lapse verification snapshots carousel showing classroom vacancy during active hours.
+3. MANDATORY LOG: Create and maintain 'logs/keerthana_log.md'.
 
-Please generate production-ready, beautiful React JSX code for these files matching implement.md.
+Please generate complete React JSX code for these files matching implement.md.
 ```
 
 ---
 
-### 🟢 PROMPT 4: For Lakshmikanth (Doctor Priority Queue & Teleconsultation Modal)
+### 🟢 PROMPT 4: For Lakshmikanth (Infrastructure Sanctioned Inventory Verifier)
 ```text
-I am Lakshmikanth from Team Elite Evolvers working on branch 'feature/doctor-queue-tele'.
+I am Lakshmikanth from Team Elite Evolvers working on branch 'feature/kd-infra-inventory'.
 I have attached README.md, PLAN.md, and implement.md.
 
 My Assigned Files:
-1. src/components/doctor/DoctorReferralQueue.jsx
-2. src/components/doctor/TeleconsultModal.jsx
+1. src/components/audit/InfraComplianceWidget.jsx
+2. src/components/audit/SanctionedEquipList.jsx
 3. logs/lakshmikanth_log.md (MANDATORY LOG)
 
 My Exact Responsibilities:
-1. Build DoctorReferralQueue.jsx:
-   - Display list of incoming patient referrals dynamically sorted by clinical severity [2] (🔴 Red cases at top, followed by 🟡 Yellow, then 🟢 Green).
-   - Each referral card must display: Patient Name, Age, Village, ASHA Worker Name, Time elapsed, Module Tag, Risk Badge, and Vitals Summary snippet [6].
-   - Filter tabs: [All Referrals | 🔴 Critical Red Flags | 🟡 Moderate Cases | 🟢 Attended].
-   - Action buttons on each card: [👁️ View Record], [📞 Start Tele-Consult] [1], [🚑 108 SOS Dispatch] [13].
-2. Build TeleconsultModal.jsx:
-   - Full-screen or large modal for Assisted Teleconsultation [1].
-   - Live Clinic Video/Camera viewport with webcam feed support (navigator.mediaDevices.getUserMedia) or animated high-fidelity doctor-patient stream simulation.
-   - Real-Time Patient Vitals HUD overlay on the side (showing BP, Hb, Heart Rate, Red Flags).
-   - In-call Doctor Notes & Prescription text area.
-   - Action buttons inside modal: [Mute Mic], [Toggle Camera], [Issue e-Prescription], [Dispatch 108 Ambulance], [End Consult & Commit].
-3. MANDATORY LOG: Create and maintain 'logs/lakshmikanth_log.md' detailing:
-   - Props for DoctorReferralQueue and TeleconsultModal
-   - How to test webcam and vitals HUD
-   - Integration notes for Abhilash.
+1. Build SanctionedEquipList.jsx:
+   - Table of approved machinery for the trade course (e.g., Sewing Machines, Computer Desks, Welding Kits, Fire Extinguisher).
+   - Columns: Sanctioned Qty, Live AI Detected Qty, Deficit Status (🟢 Compliant / 🔴 Missing).
+2. Build InfraComplianceWidget.jsx:
+   - Visual gauge/progress bar showing overall Infrastructure Compliance Score (e.g., 68%).
+   - Warning banner: "⚠ Infrastructure Alert: 4 Industrial Sewing Machines missing from Bay 2. Minimum 85% required for grant approval."
+   - "Trigger Equipment Re-Scan" button with scanning animation.
+3. MANDATORY LOG: Create and maintain 'logs/lakshmikanth_log.md'.
 
-Please generate modern, responsive, high-aesthetic React JSX code for these components matching implement.md.
+Please generate modern React JSX code for these files following implement.md.
 ```
 
 ---
 
-### 🟢 PROMPT 5: For Laxuman (Doctor Actions, 108 SOS Dispatch & Drug Inventory)
+### 🟢 PROMPT 5: For Laxuman (Privacy Face-Blur & Low-Bandwidth Telemetry)
 ```text
-I am Laxuman from Team Elite Evolvers working on branch 'feature/doctor-actions-sos'.
+I am Laxuman from Team Elite Evolvers working on branch 'feature/kd-privacy-telemetry'.
 I have attached README.md, PLAN.md, and implement.md.
 
 My Assigned Files:
-1. src/components/doctor/DoctorActionPanel.jsx
-2. src/components/doctor/SosAmbulanceModal.jsx
-3. src/components/doctor/DrugStockWidget.jsx
-4. logs/laxuman_log.md (MANDATORY LOG)
+1. src/components/edge/PrivacyBlurToggle.jsx
+2. src/components/edge/BandwidthTelemetry.jsx
+3. logs/laxuman_log.md (MANDATORY LOG)
 
 My Exact Responsibilities:
-1. Build DoctorActionPanel.jsx:
-   - Patient clinical detail inspector showing longitudinal history timeline [4].
-   - e-Prescription editor with one-click quick add for common rural medicines (IFA Tablets, ORS, Paracetamol, Calcium, Amoxicillin, Metformin) [6].
-   - Appointment scheduler with date picker (for 🟡 Yellow cases) [2].
-   - "Schedule Post-Discharge Follow-up" button that adds a task to the ASHA worker's follow-up queue [8].
-2. Build SosAmbulanceModal.jsx:
-   - Emergency "108 Arogya Kavacha" Ambulance Dispatch Interface [13].
-   - Displays live GPS dispatch simulation: Patient village coordinates, Assigned nearest PHC ambulance base, Ambulance Tracking ID, and ETA (14 minutes).
-   - Confirmation button updating referral status to "AMBULANCE_DISPATCHED".
-3. Build DrugStockWidget.jsx:
-   - Essential Medicine Inventory tracker for the PHC [7].
-   - Visual progress bars showing stock percentage of IFA, ORS, Paracetamol, Amoxicillin, Oxytocin.
-   - Color coding: 🟢 OK (>50%), 🟡 LOW (25-50%), 🔴 CRITICAL SHORTAGE (<25%).
-   - "Request Stock Replenishment" button triggering automated alert to Taluk Health Officer (THO).
-4. MANDATORY LOG: Create and maintain 'logs/laxuman_log.md' detailing:
-   - Exported component props and actions
-   - Testing steps and integration notes for Abhilash.
+1. Build PrivacyBlurToggle.jsx:
+   - Interactive button: [🔒 Privacy Anonymization Mode: ON / OFF].
+   - Applies dynamic pixelated/Gaussian face-blur filters on detected person bounding boxes in real time.
+   - Explanatory note: "DPDP Act Compliant — Zero facial biometric data stored or transmitted."
+2. Build BandwidthTelemetry.jsx:
+   - Visual telemetry inspector demonstrating rural feasibility:
+     * Traditional 24/7 CCTV Streaming: 500 MB / hour (Fails on 2G/3G).
+     * KausalyaDrishti Edge Telemetry: 5 KB / 15 minutes (99.8% bandwidth savings!).
+   - Formatted JSON preview of the 5 KB edge packet containing attendance metrics and violation keyframe snapshot.
+3. MANDATORY LOG: Create and maintain 'logs/laxuman_log.md'.
 
-Please generate clean, robust, stylish React JSX components matching the props in implement.md.
+Please generate clean React JSX code for these files matching implement.md.
 ```
 
 ---
 
-### 🟢 PROMPT 6: For Naveen (THO District Heatmap & Bilingual Dictionary)
+### 🟢 PROMPT 6: For Naveen (MSDE Ministry Command Dashboard)
 ```text
-I am Naveen from Team Elite Evolvers working on branch 'feature/tho-dashboard-i18n'.
+I am Naveen from Team Elite Evolvers working on branch 'feature/kd-msde-dashboard'.
 I have attached README.md, PLAN.md, and implement.md.
 
 My Assigned Files:
-1. src/components/tho/ThoDistrictDashboard.jsx
-2. src/components/tho/TalukHeatmap.jsx
-3. src/data/i18n.js
-4. logs/naveen_log.md (MANDATORY LOG)
+1. src/components/msde/MsdeDistrictDashboard.jsx
+2. src/components/msde/CentreAuditTable.jsx
+3. logs/naveen_log.md (MANDATORY LOG)
 
 My Exact Responsibilities:
-1. Build ThoDistrictDashboard.jsx:
-   - High-level District Health Administration console for Taluk Health Officer (THO) [9].
-   - KPI Summary Cards:
-     * Total High-Risk Red Cases (e.g., 29 Critical in Pavagada)
-     * Overall Referral Completion Rate (e.g., 84.6%)
-     * Active ASHA Workers Online (e.g., 148 reporting)
-     * PHCs with Critical Drug Stockouts (e.g., 2 Facilities)
-   - Taluk comparison table (Koratagere, Pavagada, Madhugiri, Gubbi, Sira) with case counts and referral success metrics.
-   - Drug Shortage Alerts table allowing THO to approve emergency medicine shipments [7].
-2. Build TalukHeatmap.jsx:
-   - Interactive visual geospatial risk intensity map of Tumakuru district taluks.
-   - Interactive taluk cards glowing red/amber based on caseload severity.
-   - Clicking a taluk filters district statistics and shows primary localized health risks (e.g., Pavagada = Fluorosis/SAM, Koratagere = Maternal Pre-eclampsia).
-3. Ensure src/data/i18n.js contains comprehensive, accurate translations in **ಕನ್ನಡ (Kannada)** and English for every single UI text, button, alert, and clinical guideline [12].
-4. MANDATORY LOG: Create and maintain 'logs/naveen_log.md' detailing:
-   - Heatmap component usage
-   - I18N dictionary helper functions
-   - Integration notes for Abhilash.
+1. Build MsdeDistrictDashboard.jsx:
+   - National & State/District Skilling Governance Console for MSDE officers.
+   - Summary KPI Cards:
+     * Total Monitored Centres: 148
+     * Active Batches Monitored: 412
+     * Ghost Trainee Alerts Triggered: 19 Centres
+     * Estimated Grant Leakage Blocked: ₹14,80,000
+   - Interactive District Compliance Heatmap cards (Tumakuru, Bengaluru Rural, Mysuru, Belagavi).
+2. Build CentreAuditTable.jsx:
+   - Leaderboard table of training centres with compliance scores (0 to 100%) and fraud risk badges.
+   - One-Click Enforcement Actions:
+     * [📄 Generate Official Show-Cause Notice]
+     * [🚫 Freeze PMKVY Grant Disbursement]
+     * [📅 Order Flying-Squad Surprise Inspection]
+3. MANDATORY LOG: Create and maintain 'logs/naveen_log.md'.
 
-Please generate production-quality React JSX code for these files following implement.md.
+Please generate complete React JSX code for these files following implement.md.
 ```
 
 ---
 
-## ⏱️ 6. 6-Hour Hackathon Sprint Timeline & Checkpoints
+## ⏱️ 6. 6-Hour Hackathon Sprint Timeline & 3-Min Judging Roles
 
 ```
-┌──────────────┬─────────────────────────────────────────────────┬──────────────────┐
-│ Time Window  │ Sprint Phase & Deliverables                     │ Milestone Goal   │
-├──────────────┼─────────────────────────────────────────────────┼──────────────────┤
-│ 00:00--00:30 │ All members clone repo, create branches, test   │ 🟢 Git Sync OK   │
-│              │ npm install & local dev server.                 │                  │
-├──────────────┼─────────────────────────────────────────────────┼──────────────────┤
-│ 00:30--02:30 │ Parallel Development: Each member builds their  │ 🟡 Components    │
-│              │ assigned files & updates logs/name_log.md.      │    Operational   │
-├──────────────┼─────────────────────────────────────────────────┼──────────────────┤
-│ 02:30--03:30 │ Local Component Testing & Git Push to remote    │ 🟡 Branch Push   │
-│              │ feature branches with log files.                │    Complete      │
-├──────────────┼─────────────────────────────────────────────────┼──────────────────┤
-│ 03:30--04:30 │ Master Integration: Abhilash reviews logs,      │ 🟠 Merged App    │
-│              │ merges branches into main, verifies props.      │    Working       │
-├──────────────┼─────────────────────────────────────────────────┼──────────────────┤
-│ 04:30--05:30 │ End-to-End Flow Validation: Test all 14 official│ 🟢 All 14 PS     │
-│              │ features in Kannada & English, offline & online.│    Features Live │
-├──────────────┼─────────────────────────────────────────────────┼──────────────────┤
-│ 05:30--06:00 │ Demo Rehearsal (3-Minute Script) & Presentation │ 🏆 100% Ready    │
-│              │ role assignment for judges.                     │    For Judges    │
-└──────────────┴─────────────────────────────────────────────────┴──────────────────┘
+┌──────────────┬────────────────────────────────────────────────────────┬──────────────────┐
+│ Time Window  │ Sprint Phase & Deliverables                            │ Milestone Goal   │
+├──────────────┼────────────────────────────────────────────────────────┼──────────────────┤
+│ 00:00--00:30 │ All members clone KD branch, create feature branches,  │ 🟢 Setup OK      │
+│              │ run npm install and test local dev server.             │                  │
+├──────────────┼────────────────────────────────────────────────────────┼──────────────────┤
+│ 00:30--02:30 │ Parallel Development: Each member builds their assigned│ 🟡 Components    │
+│              │ components using their copy-paste AI prompt.           │    Operational   │
+├──────────────┼────────────────────────────────────────────────────────┼──────────────────┤
+│ 02:30--03:30 │ Local Component Testing & Git Push to remote branches  │ 🟡 Branch Push   │
+│              │ with updated logs/name_log.md files.                   │    Complete      │
+├──────────────┼────────────────────────────────────────────────────────┼──────────────────┤
+│ 03:30--04:30 │ Master Integration: Abhilash merges all branches into  │ 🟠 Merged App    │
+│              │ KD branch, resolves props, connects master state.      │    Working       │
+├──────────────┼────────────────────────────────────────────────────────┼──────────────────┤
+│ 04:30--05:30 │ End-to-End Flow Validation: Test camera, ghost trainee │ 🟢 All Features  │
+│              │ alerts, infra checklist, privacy blur, ministry tools. │    Live          │
+├──────────────┼────────────────────────────────────────────────────────┼──────────────────┤
+│ 05:30--06:00 │ Demo Rehearsal (3-Minute Script) & Pitch Delivery prep │ 🏆 100% Ready    │
+└──────────────┴────────────────────────────────────────────────────────┴──────────────────┘
 ```
 
 ---
 
-## 🎤 7. Presentation Roles During Live Judging (3 Minutes)
-
-* **Abhilash K R (Lead Speaker):** Introduce Problem Statement #133, explain the 100% offline-first architecture, toggle between online and offline modes, and conclude with the system strengthening impact.
-* **Anjandri & Keerthana:** Demonstrate the **ASHA Field App** live on airplane mode: enter *Lakshmi Bai*, trigger instant 🔴 **RED HIGH RISK** triage, show red flags, and generate the QR referral slip.
-* **Lakshmikanth & Laxuman:** Demonstrate the **PHC Doctor Portal**: show the high-risk referral arriving at the top of the queue, launch the live **Teleconsultation session**, trigger **108 Ambulance SOS**, and inspect drug stock.
-* **Naveen:** Demonstrate the **THO District Dashboard**: show the Tumakuru taluk risk heatmap, and click the language switch to flip the entire platform into **ಕನ್ನಡ (Kannada)** to prove real-world field readiness.
-
----
-
-*ArogyaBandhu Implementation Blueprint • Elite Evolvers • SIH 2026*
+*KausalyaDrishti Implementation Plan • Elite Evolvers • SIH 2026 (PS ID: 26245)*

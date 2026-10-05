@@ -27,12 +27,15 @@ function CameraFeedView({ centre, setCentre }) {
   const [isPrivacyOn, setIsPrivacyOn] = useState(true);
   const [cameraError, setCameraError] = useState(null);
 
-  // Dynamic Trainee Counts
-  // When camera is ON: 1 (You) + simulatedExtraBatch
-  // When camera is OFF: 0 + simulatedExtraBatch
+  // Real AI detected count from webcam via TensorFlow.js COCO-SSD
+  const [realDetectedCount, setRealDetectedCount] = useState(0);
   const [simulatedExtraBatch, setSimulatedExtraBatch] = useState(0);
+  // Sensitivity: 'crowd' (0.10 for dense photos/overhead crowds), 'standard' (0.25), 'strict' (0.45)
+  const [sensitivity, setSensitivity] = useState('crowd');
 
-  const visualHeadCount = (isCameraActive ? 1 : 0) + simulatedExtraBatch;
+  const minConfidence = sensitivity === 'crowd' ? 0.10 : sensitivity === 'standard' ? 0.25 : 0.45;
+
+  const visualHeadCount = (isCameraActive ? realDetectedCount : 0) + simulatedExtraBatch;
   const discrepancy = calculateAttendanceDiscrepancy(centre.biometricClaimed, visualHeadCount);
   const infra = calculateInfraCompliance(centre.sanctionedEquipment);
 
@@ -82,6 +85,32 @@ function CameraFeedView({ centre, setCentre }) {
         </div>
 
         <div className="kd-actions-row">
+          {/* AI Detection Sensitivity Selector */}
+          <div style={{ display: 'flex', alignItems: 'center', background: 'rgba(30, 41, 59, 0.7)', borderRadius: '8px', padding: '4px', border: '1px solid rgba(148, 163, 184, 0.2)' }}>
+            <span style={{ fontSize: '11px', color: '#94a3b8', fontWeight: 600, padding: '0 8px' }}>AI Sensitivity:</span>
+            <button 
+              className={`kd-btn kd-btn-xs ${sensitivity === 'crowd' ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
+              onClick={() => setSensitivity('crowd')}
+              title="Detects small, occluded & background faces in dense groups/photos"
+            >
+              Dense Crowd (18%)
+            </button>
+            <button 
+              className={`kd-btn kd-btn-xs ${sensitivity === 'standard' ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
+              onClick={() => setSensitivity('standard')}
+              title="Balanced confidence threshold"
+            >
+              Standard (30%)
+            </button>
+            <button 
+              className={`kd-btn kd-btn-xs ${sensitivity === 'strict' ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
+              onClick={() => setSensitivity('strict')}
+              title="High confidence only"
+            >
+              Strict (50%)
+            </button>
+          </div>
+
           {!isCameraActive ? (
             <button className="kd-btn kd-btn-primary" onClick={startWebcam}>
               <Camera size={18} />
@@ -155,13 +184,13 @@ function CameraFeedView({ centre, setCentre }) {
               className={`kd-video-element ${isPrivacyOn ? 'kd-privacy-filter' : ''}`}
             />
 
-            {/* AI Bounding Box Canvas Overlay */}
+            {/* AI Bounding Box Canvas Overlay (TensorFlow.js COCO-SSD) */}
             <AiDetector 
               videoRef={videoRef}
               isCameraActive={isCameraActive}
               isPrivacyOn={isPrivacyOn}
-              detectedCount={visualHeadCount}
-              simulatedExtra={simulatedExtraBatch}
+              onCountUpdate={setRealDetectedCount}
+              minConfidence={minConfidence}
             />
 
             {!isCameraActive && (
@@ -194,36 +223,67 @@ function CameraFeedView({ centre, setCentre }) {
           </div>
 
           {/* Interactive Batch Simulator Bar (For Judge Demo) */}
-          <div className="kd-demo-bar">
-            <div className="kd-flex-align">
-              <Sliders size={16} className="kd-text-blue" />
-              <span className="kd-text-xs kd-text-bold">Hackathon Demo Batch Adjuster:</span>
+          <div className="kd-demo-bar" style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'stretch' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
+              <div className="kd-flex-align">
+                <span style={{ fontSize: '11px', color: '#38bdf8', fontWeight: 700 }}>🎯 AI SENSITIVITY:</span>
+              </div>
+              <div className="kd-demo-btn-group">
+                <button 
+                  className={`kd-btn kd-btn-xs ${sensitivity === 'crowd' ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
+                  onClick={() => setSensitivity('crowd')}
+                  title="Detects small, occluded & background faces in dense groups/photos"
+                >
+                  🔥 Dense Crowd / Top-Down (10%)
+                </button>
+                <button 
+                  className={`kd-btn kd-btn-xs ${sensitivity === 'standard' ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
+                  onClick={() => setSensitivity('standard')}
+                  title="Balanced confidence threshold"
+                >
+                  Standard (25%)
+                </button>
+                <button 
+                  className={`kd-btn kd-btn-xs ${sensitivity === 'strict' ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
+                  onClick={() => setSensitivity('strict')}
+                  title="High confidence only"
+                >
+                  Strict (45%)
+                </button>
+              </div>
             </div>
-            <div className="kd-demo-btn-group">
-              <button 
-                className={`kd-btn kd-btn-xs ${simulatedExtraBatch === 0 ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
-                onClick={() => setSimulatedExtraBatch(0)}
-              >
-                Only Me ({isCameraActive ? 1 : 0} Head)
-              </button>
-              <button 
-                className={`kd-btn kd-btn-xs ${simulatedExtraBatch === 5 ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
-                onClick={() => setSimulatedExtraBatch(5)}
-              >
-                +5 Batch Heads
-              </button>
-              <button 
-                className={`kd-btn kd-btn-xs ${simulatedExtraBatch === 37 ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
-                onClick={() => setSimulatedExtraBatch(37)}
-              >
-                +37 Batch (Simulate 38 Total)
-              </button>
-              <button 
-                className={`kd-btn kd-btn-xs ${simulatedExtraBatch === (centre.biometricClaimed - (isCameraActive ? 1 : 0)) ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
-                onClick={() => setSimulatedExtraBatch(Math.max(0, centre.biometricClaimed - (isCameraActive ? 1 : 0)))}
-              >
-                Match 100% ({centre.biometricClaimed})
-              </button>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '6px', borderTop: '1px solid rgba(148, 163, 184, 0.15)', paddingTop: '6px' }}>
+              <div className="kd-flex-align">
+                <Sliders size={14} className="kd-text-blue" />
+                <span className="kd-text-xs kd-text-bold">Batch Simulator:</span>
+              </div>
+              <div className="kd-demo-btn-group">
+                <button 
+                  className={`kd-btn kd-btn-xs ${simulatedExtraBatch === 0 ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
+                  onClick={() => setSimulatedExtraBatch(0)}
+                >
+                  AI Only ({realDetectedCount} Head{realDetectedCount === 1 ? '' : 's'})
+                </button>
+                <button 
+                  className={`kd-btn kd-btn-xs ${simulatedExtraBatch === 5 ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
+                  onClick={() => setSimulatedExtraBatch(5)}
+                >
+                  +5 Batch
+                </button>
+                <button 
+                  className={`kd-btn kd-btn-xs ${simulatedExtraBatch === 37 ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
+                  onClick={() => setSimulatedExtraBatch(37)}
+                >
+                  +37 Batch (38 Total)
+                </button>
+                <button 
+                  className={`kd-btn kd-btn-xs ${simulatedExtraBatch === Math.max(0, centre.biometricClaimed - realDetectedCount) ? 'kd-btn-primary' : 'kd-btn-secondary'}`}
+                  onClick={() => setSimulatedExtraBatch(Math.max(0, centre.biometricClaimed - realDetectedCount))}
+                >
+                  Match 100% ({centre.biometricClaimed})
+                </button>
+              </div>
             </div>
           </div>
         </div>

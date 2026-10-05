@@ -84,6 +84,52 @@ function MinistryConsole() {
                 <button 
                   className="kd-btn kd-btn-secondary kd-btn-sm"
                   onClick={() => {
+                    const noticeText = generateShowCauseNotice(
+                      activeNoticeCentre,
+                      calculateAttendanceDiscrepancy(activeNoticeCentre.biometricClaimed, activeNoticeCentre.defaultAiDetected),
+                      calculateInfraCompliance(activeNoticeCentre.sanctionedEquipment)
+                    );
+                    const printWin = window.open('', '_blank', 'width=800,height=900');
+                    if (printWin) {
+                      printWin.document.write(`
+                        <html>
+                          <head>
+                            <title>Show-Cause Notice - ${activeNoticeCentre.id}</title>
+                            <style>
+                              body { font-family: 'Times New Roman', serif; padding: 40px; color: #111; line-height: 1.6; }
+                              .header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 12px; margin-bottom: 24px; }
+                              .emblem { font-size: 20px; font-weight: bold; }
+                              pre { white-space: pre-wrap; font-family: monospace; font-size: 13px; background: #f8fafc; padding: 20px; border: 1px solid #cbd5e1; border-radius: 6px; }
+                              .footer { margin-top: 40px; text-align: right; }
+                            </style>
+                          </head>
+                          <body>
+                            <div class="header">
+                              <div class="emblem">GOVERNMENT OF INDIA</div>
+                              <div>MINISTRY OF SKILL DEVELOPMENT & ENTREPRENEURSHIP (MSDE)</div>
+                              <div style="font-size:12px; color:#555;">National Skill Development Corporation • Shram Shakti Bhawan, New Delhi</div>
+                            </div>
+                            <pre>${noticeText}</pre>
+                            <div class="footer">
+                              <div><strong>Authorized Signatory</strong></div>
+                              <div>Director (Compliance & Quality Assurance)</div>
+                              <div>KausalyaDrishti AI Regulatory Cell</div>
+                            </div>
+                          </body>
+                        </html>
+                      `);
+                      printWin.document.close();
+                      printWin.focus();
+                      setTimeout(() => printWin.print(), 300);
+                    }
+                  }}
+                >
+                  <Printer size={14} />
+                  <span>Print / Save PDF</span>
+                </button>
+                <button 
+                  className="kd-btn kd-btn-secondary kd-btn-sm"
+                  onClick={() => {
                     navigator.clipboard.writeText(
                       generateShowCauseNotice(
                         activeNoticeCentre,
@@ -94,7 +140,7 @@ function MinistryConsole() {
                     setNoticeCopied(true);
                   }}
                 >
-                  {noticeCopied ? '✅ Copied to Clipboard' : '📋 Copy Text'}
+                  {noticeCopied ? '✅ Copied' : '📋 Copy Text'}
                 </button>
                 <button 
                   className="kd-btn kd-btn-danger kd-btn-sm"

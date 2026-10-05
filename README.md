@@ -25,7 +25,7 @@ The system features **dynamic real-time face-blurring for 100% trainee privacy**
 | **1** | **Abhilash K R** *(Lead)* | Lead Integrator & Architecture | `KD` / `main` | `App.jsx`, `Navbar.jsx`, `CenterRegistry.js`, Master State & Navigation |
 | **2** | **Anjandri T N** | Edge Video & AI Detection | `feature/kd-video-ai-feed` | `CameraFeedView.jsx`, `AiDetector.jsx` (Bounding box overlays) |
 | **3** | **Keerthana** | Attendance Discrepancy Engine | `feature/kd-discrepancy-engine` | `AttendanceDiscrepancyCard.jsx`, `complianceRules.js` (Ghost trainee logic) |
-| **4** | **Lakshmikanth** | Infrastructure Compliance | `feature/kd-infra-inventory` | `InfraComplianceWidget.jsx`, `SanctionedEquipList.jsx` (Machinery scanner) |
+| **4** | **Lakshmikantha D H** | Infrastructure Compliance | `feature/kd-infra-inventory` | `InfraComplianceWidget.jsx`, `SanctionedEquipList.jsx` (Machinery scanner) |
 | **5** | **Laxuman** | Privacy & Low-Bandwidth Edge | `feature/kd-privacy-telemetry` | `PrivacyBlurToggle.jsx`, `BandwidthTelemetry.jsx` (5KB Edge payload) |
 | **6** | **Naveen** | MSDE Ministry Dashboard | `feature/kd-msde-dashboard` | `MsdeDistrictDashboard.jsx`, `CentreAuditTable.jsx` (State/District analytics) |
 
